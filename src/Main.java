@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        while(true){
+        while (true) {
             System.out.println("================MENU=================");
             System.out.println("1. Addition - type 'add'");
             System.out.println("2. Subtraction - type 'sub'");
@@ -14,8 +14,12 @@ public class Main {
             System.out.println("Enter the operation you want to perform: ");
             Scanner scanner = new Scanner(System.in);
             String operationName = scanner.nextLine();
-            if(operationName.equals("6") || operationName.equals("exit")){
+            if (operationName.equals("6") || operationName.equals("exit")) {
                 break;
+            }
+            if(OperationFactory.getOperation(operationName) == null) {
+                System.out.println("Invalid operation");
+                continue;
             }
             System.out.println("Enter the first number: ");
             int x = scanner.nextInt();
